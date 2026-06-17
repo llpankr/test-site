@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="tr">
+<!DOCTYPE html><html lang="tr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bakımda</title>
+<title>Bakımda</title><style>
 
-<style>
 *{
     margin:0;
     padding:0;
@@ -24,20 +22,23 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
+}
+
+.hero h1{
     font-size:3rem;
 }
 
 .bakim{
     min-height:100vh;
     display:flex;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
-    flex-direction:column;
     padding:20px;
 }
 
 input{
-    width:300px;
+    width:320px;
     padding:12px;
     margin:10px;
     border:none;
@@ -46,74 +47,102 @@ input{
 }
 
 button{
-    padding:12px 25px;
+    width:320px;
+    padding:12px;
+    margin-top:10px;
     border:none;
     border-radius:8px;
     cursor:pointer;
     font-size:16px;
 }
 
-.uyari{
-    margin-top:30px;
-    font-size:14px;
-    color:#ccc;
-}
-
 footer{
     padding:40px 0;
-    border-top:2px solid #444;
-    font-size:20px;
 }
 
 .line{
     width:80%;
-    margin:10px auto;
+    margin:15px auto;
     border-top:2px solid #555;
 }
-</style>
-</head>
 
-<body>
-
-<section class="hero">
-    <h1>Hoş Geldiniz</h1>
-</section>
-
-<section class="bakim">
-    <h2>🚧 Site Şu Anda Bakımda 🚧</h2>
-    <br>
-    <p>Anlayışınız için teşekkür ederiz.</p>
-
-    <br><br>
-
-    <input type="text" id="adsoyad" placeholder="Ad Soyad">
-
-    <input type="date" id="dogumtarihi">
-
-    <button onclick="gonder()">Gönder</button>
-
-    <div class="uyari">
-        <p>DENEME AMAÇLIDIR!</p>
-        <p>FOR TESTING PURPOSES ONLY!</p>
-        <p>BY•NASTOXREAL</p>
-        <p>İG•NASTOXREAL</p>
-    </div>
-</section>
-
-<footer>
-    <div class="line"></div>
-
-    <p>BY•PANKR_ANK</p>
-    <p>BY•NASTOXREAL</p>
-
-    <div class="line"></div>
-</footer>
-
-<script>
-function gonder(){
-    alert("Bilgiler gönderildi!");
+.uyari{
+    margin-top:25px;
+    color:#ccc;
 }
-</script>
 
-</body>
+</style></head><body><section class="hero">
+    <h1>Hoş Geldiniz</h1>
+</section><section class="bakim"><h2>🚧 Site Şu Anda Bakımda 🚧</h2>
+<br>
+<p>Anlayışınız için teşekkür ederiz.</p>
+
+<br><br>
+
+<input
+    type="text"
+    id="adsoyad"
+    placeholder="Ad Soyad">
+
+<input
+    type="date"
+    id="dogumtarihi">
+
+<button onclick="gonder()">
+    Gönder
+</button>
+
+<div class="uyari">
+    <p>DENEME AMAÇLIDIR!</p>
+    <p>FOR TESTING PURPOSES ONLY!</p>
+    <p>BY•NASTOXREAL</p>
+    <p>İG•NASTOXREAL</p>
+</div>
+
+</section><footer><div class="line"></div>
+
+<p>BY•PANKR_ANK</p>
+<p>BY•NASTOXREAL</p>
+
+<div class="line"></div>
+
+</footer><script>
+
+async function gonder(){
+
+    let adsoyad =
+        document.getElementById("adsoyad").value;
+
+    let dogumtarihi =
+        document.getElementById("dogumtarihi").value;
+
+    try{
+
+        await fetch(
+            "http://192.168.1.38:5000/gonder",
+            {
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify({
+                    adsoyad: adsoyad,
+                    dogumtarihi: dogumtarihi
+                })
+            }
+        );
+
+        alert("Bilgiler gönderildi.");
+
+    }catch(e){
+
+        alert("Sunucuya ulaşılamadı.");
+
+        console.log(e);
+
+    }
+
+}
+
+</script></body>
 </html>
