@@ -28,12 +28,35 @@ body{
 }
 
 .bakim{
-    height:100vh;
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
     flex-direction:column;
     padding:20px;
+}
+
+input{
+    width:300px;
+    padding:12px;
+    margin:10px;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+}
+
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.uyari{
+    margin-top:30px;
+    font-size:14px;
+    color:#ccc;
 }
 
 footer{
@@ -60,6 +83,21 @@ footer{
     <h2>🚧 Site Şu Anda Bakımda 🚧</h2>
     <br>
     <p>Anlayışınız için teşekkür ederiz.</p>
+
+    <br><br>
+
+    <input type="text" id="adsoyad" placeholder="Ad Soyad">
+
+    <input type="date" id="dogumtarihi">
+
+    <button onclick="gonder()">Gönder</button>
+
+    <div class="uyari">
+        <p>DENEME AMAÇLIDIR!</p>
+        <p>FOR TESTING PURPOSES ONLY!</p>
+        <p>BY•NASTOXREAL</p>
+        <p>İG•NASTOXREAL</p>
+    </div>
 </section>
 
 <footer>
@@ -70,6 +108,12 @@ footer{
 
     <div class="line"></div>
 </footer>
+
+<script>
+function gonder(){
+    alert("Bilgiler gönderildi!");
+}
+</script>
 
 </body>
 </html>
