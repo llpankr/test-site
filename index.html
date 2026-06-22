@@ -1,148 +1,144 @@
-<!DOCTYPE html><html lang="tr">
+```html
+<!DOCTYPE html>
+<html lang="tr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bakımda</title><style>
+<title>NOXRA GYM</title>
 
+<style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,sans-serif;
+    font-family:Arial, sans-serif;
 }
 
 body{
-    background:#111;
-    color:white;
-    text-align:center;
-}
-
-.hero{
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-.hero h1{
-    font-size:3rem;
-}
-
-.bakim{
     min-height:100vh;
+    overflow-y:auto;
+    background:url('https://i.hizliresim.com/8grgdi1.jpg') center center/cover no-repeat fixed;
+    color:white;
+}
+
+.overlay{
+    min-height:100vh;
+    background:rgba(0,0,0,.75);
     display:flex;
-    flex-direction:column;
     justify-content:center;
     align-items:center;
-    padding:20px;
+    padding:60px 20px;
 }
 
-input{
-    width:320px;
-    padding:12px;
-    margin:10px;
-    border:none;
-    border-radius:8px;
-    font-size:16px;
+.container{
+    text-align:center;
+    max-width:600px;
+    width:100%;
 }
 
-button{
-    width:320px;
-    padding:12px;
-    margin-top:10px;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-    font-size:16px;
+h1{
+    font-size:3rem;
+    margin-bottom:20px;
+    letter-spacing:3px;
 }
 
-footer{
-    padding:40px 0;
+.maintenance{
+    font-size:1.4rem;
+    margin-bottom:15px;
 }
 
-.line{
-    width:80%;
+.text{
+    margin-bottom:40px;
+    color:#ddd;
+}
+
+.dots{
+    font-size:2rem;
+    line-height:50px;
+    margin-bottom:40px;
+}
+
+.section-title{
+    font-size:1.6rem;
+    font-weight:bold;
+    margin:35px 0 20px;
+}
+
+.btn{
+    display:block;
+    width:100%;
+    max-width:450px;
     margin:15px auto;
-    border-top:2px solid #555;
+    padding:15px;
+    border-radius:10px;
+    text-decoration:none;
+    color:white;
+    background:#111;
+    border:1px solid #444;
+    transition:.3s;
 }
 
-.uyari{
-    margin-top:25px;
-    color:#ccc;
+.btn:hover{
+    background:#ff6600;
+    transform:scale(1.03);
 }
 
-</style></head><body><section class="hero">
-    <h1>Hoş Geldiniz</h1>
-</section><section class="bakim"><h2>🚧 Site Şu Anda Bakımda 🚧</h2>
-<br>
-<p>Anlayışınız için teşekkür ederiz.</p>
+.footer{
+    margin-top:50px;
+    font-size:1.2rem;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+</style>
+</head>
+<body>
 
-<br><br>
+<div class="overlay">
+    <div class="container">
 
-<input
-    type="text"
-    id="adsoyad"
-    placeholder="Ad Soyad">
+        <h1>NOXRAGYM</h1>
 
-<input
-    type="date"
-    id="dogumtarihi">
+        <div class="maintenance">
+            🚧 Site şu anda bakımda 🚧
+        </div>
 
-<button onclick="gonder()">
-    Gönder
-</button>
+        <div class="text">
+            Anlayışınız için teşekkür ederiz.
+        </div>
 
-<div class="uyari">
-    <p>DENEME AMAÇLIDIR!</p>
-    <p>FOR TESTING PURPOSES ONLY!</p>
-    <p>BY•NASTOXREAL</p>
-    <p>İG•NASTOXREAL</p>
+        <div class="dots">
+            •<br>
+            •<br>
+            •
+        </div>
+
+        <div class="section-title">
+            SATIŞLARIMIZ
+        </div>
+
+        <a class="btn" href="https://ty.gl/9uj4hcm4vfavq" target="_blank">
+            Trendyol Mağazamız
+        </a>
+
+        <a class="btn" href="https://hepsiburada.com/magaza/noxra-gym" target="_blank">
+            Hepsiburada Mağazamız
+        </a>
+
+        <div class="section-title">
+            İLETİŞİM
+        </div>
+
+        <a class="btn" href="https://www.instagram.com/noxragym?igsh=MWQ0MmZkeTJmZnJodQ==" target="_blank">
+            Instagram
+        </a>
+
+        <div class="footer">
+            NOXRA GYM
+        </div>
+
+    </div>
 </div>
 
-</section><footer><div class="line"></div>
-
-<p>BY•PANKR_ANK</p>
-<p>BY•NASTOXREAL</p>
-
-<div class="line"></div>
-
-</footer><script>
-
-async function gonder(){
-
-    let adsoyad =
-        document.getElementById("adsoyad").value;
-
-    let dogumtarihi =
-        document.getElementById("dogumtarihi").value;
-
-    try{
-
-        await fetch(
-            "http://192.168.1.38:5000/gonder",
-            {
-                method:"POST",
-                headers:{
-                    "Content-Type":"application/json"
-                },
-                body:JSON.stringify({
-                    adsoyad: adsoyad,
-                    dogumtarihi: dogumtarihi
-                })
-            }
-        );
-
-        alert("Bilgiler gönderildi.");
-
-    }catch(e){
-
-        alert("Sunucuya ulaşılamadı.");
-
-        console.log(e);
-
-    }
-
-}
-
-</script></body>
+</body>
 </html>
+```
